@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Starling database migration",
   "scripts": {
+    "start": "npm run migrate",
     "rollback": "knex migrate:down",
     "migrate": "knex migrate:up",
     "create": "knex migrate:make",
