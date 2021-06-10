@@ -39,7 +39,7 @@ jobs:
     - run: npm install
     - run: npm run build --if-present
     - run: cp .env.example .env
-    - run: npm migrate
+    - run: npm run migrate
       env:
         CI: true
 
