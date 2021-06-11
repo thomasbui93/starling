@@ -1,10 +1,10 @@
 require('dotenv').config();
 
-const config = {
+const config = (isDev = true) => ({
   client: 'pg',
   connection: {
     connectionString: process.env.DATABASE_URL,
-    ssl: {
+    ssl: isDev ? false: {
       rejectUnauthorized: false
     }
   },
@@ -15,10 +15,10 @@ const config = {
   migrations: {
     tableName: 'knex_migrations'
   }
-}
+})
 
 module.exports = {
-  development: config,
-  ci: config,
-  production: config
+  development: config(),
+  ci: config(),
+  production: config(false)
 };
